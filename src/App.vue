@@ -1,22 +1,33 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import NavBar from './components/NavBar.vue'
+import FooterAw from './components/FooterAw.vue'
+import { ref } from 'vue';
+
+const strOne = ref('Hello ')
+const strTwo = ref('World')
+let getSum = (str, strTwo) => `${str} ${strTwo}`
+
+//button  css logic
+// let blueActive = ref(false)
+// let getActive = () => (blueActive.value = true)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div :class="{ blue: blueActive }">Here I'm!</div>
+  <!-- <button @click="getActive">Click Me</button> -->
+  <NavBar />
+  <h1>Page</h1>
+  <p>2+2</p>
+  <p>{{ getSum(strOne, strTwo) }}</p>
+  <FooterAw />
 </template>
 
 <style scoped>
-
+div{
+  background-color: green;
+  width: 100%;
+}
+.blue {
+  background-color: blue;
+}
 </style>
